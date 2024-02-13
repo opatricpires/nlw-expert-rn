@@ -63,8 +63,9 @@ export default function Cart() {
   return (
     <View className="flex-1 pt-8">
       <Header title="Seu carrinho" />
+
       <KeyboardAwareScrollView>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView>
           <View className="p-5 flex-1">
             {cartStore.products.length > 0 ? (
               <View className="border-b border-slate-700">
@@ -88,11 +89,12 @@ export default function Cart() {
                 {total}
               </Text>
             </View>
+
             <Input
-              placeholder="Informe o endereço de entrega"
+              placeholder="Informe o endereço de entrega com rua, bairro, CEP, número e complemento..."
               onChangeText={setAddress}
-              onSubmitEditing={handleOrder}
               blurOnSubmit={true}
+              onSubmitEditing={handleOrder}
               returnKeyType="next"
             />
           </View>
